@@ -1,0 +1,35 @@
+<h1>Listing test runs</h1>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Server</th>
+    <th>Test</th>
+    <th>Ran</th>
+    <th>Result</th>
+    <th>Actions</th>
+  </tr>
+</thead>
+
+<tbody>
+<% @test_runs.each do |test_run| %>
+  <tr>
+    <td><%= test_run.server.api_url %></td>
+    <td><%= test_run.test_description.summary %></td>
+    <td><%= time_ago_in_words(test_run.created_at) + " ago" %></td>
+    <td>
+      <%= result_icon(test_run) %>
+    </td>
+    <td>
+      <%= link_to 'Show', test_run %>
+      <%= link_to 'Edit', edit_test_run_path(test_run) %>
+      <%= link_to 'Destroy', test_run, confirm: 'Are you sure?', method: :delete %>
+    </td>
+  </tr>
+<% end %>
+</table>
+</tbody>
+
+<br />
+
+<%= link_to 'New Test run', new_test_run_path %>

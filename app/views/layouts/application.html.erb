@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>StudioCheck</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <%= link_to "StudioCheck", root_path, :class => :brand %>
+      <div class="nav-collapse">
+        <ul class="nav">
+          <li><%= link_to "Home", root_path %></li>
+          <li><%= link_to "Servers", servers_path %></li>
+          <li><%= link_to "Tests", test_descriptions_path %></li>
+          <li><%= link_to "Backend", test_execution_path %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row-fluid">
+    <%= yield %>
+  </div>
+</div>
+
+<footer class="page-footer"></footer>
+
+</body>
+</html>

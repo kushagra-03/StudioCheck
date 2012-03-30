@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Server:</b>
+  <%= @test_run.server.api_url %>
+</p>
+
+<p>
+  <b>Test:</b>
+  <%= @test_run.test_description.summary %>
+</p>
+
+<p>
+  <b>Result:</b>
+    <%= result_icon @test_run %>
+</p>
+
+<p>
+  <b>Log:</b>
+  <div id="run-log">
+    <%= javascript_tag "$('#run-log').load('/test_runs/#{@test_run.id}/run_log');" %>
+  </div>
+</p>
+
+<%= link_to 'Edit', edit_test_run_path(@test_run) %> |
+<%= link_to 'Run', run_test_run_path(@test_run) %> |
+<%= link_to 'Back', test_runs_path %>

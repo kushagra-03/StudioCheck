@@ -1,0 +1,13 @@
+<h1><%= @test_description.summary %></h1>
+
+<p id="notice" class="message"><%= notice %></p>
+
+<p>
+  <b>Description:</b>
+<pre>
+<%= @test_description.description %>
+</pre>
+</p>
+
+<%= link_to 'Edit', edit_test_description_path(@test_description) %> |
+<%= link_to 'Back', test_descriptions_path %>

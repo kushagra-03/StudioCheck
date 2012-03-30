@@ -1,0 +1,31 @@
+<h1>Listing servers</h1>
+
+<table class="table table-striped">
+<thead>
+  <tr>
+    <th>Api url</th>
+    <th>Username</th>
+    <th>Password</th>
+    <th>Actions</th>
+  </tr>
+</thead>
+
+<tbody>
+<% @servers.each do |server| %>
+  <tr>
+    <td><%= server.api_url %></td>
+    <td><%= server.username %></td>
+    <td><%= server.password %></td>
+    <td>
+      <%= link_to 'Show', server %>
+      <%= link_to 'Edit', edit_server_path(server) %>
+      <%= link_to 'Destroy', server, confirm: 'Are you sure?', method: :delete %>
+    </td>
+  </tr>
+<% end %>
+</table>
+</tbody>
+
+<br />
+
+<%= link_to 'New Server', new_server_path %>

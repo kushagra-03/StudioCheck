@@ -1,0 +1,26 @@
+<div class="row-fluid">
+<h1>Queues</h1>
+
+<% queues.each do |queue| %>
+  <% size = Resque.size(queue) %>
+
+  <h2><%= queue.capitalize %> (<%= size %> jobs)</h2>
+
+  <% if size != 0 %>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Job</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% Resque.peek(queue, 0, size).each do |job| %>
+          <tr>
+            <td><%= job["payload"]["class"] %>:<%= worker.job["payload"]["args"].inspect %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+<% end %>
+</div>

@@ -1,0 +1,31 @@
+<h1>Workers</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Worker</th>
+      <th>State</th>
+      <th>Processes queues</th>
+      <th>Crunching</th>
+      <th>Started</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% workers.each do |worker| %>
+      <tr>
+        <td><%= worker.hostname + ":" + worker.pid.to_s %></td>
+        <td><%= worker.state %></td>
+        <td><%= worker.queues.to_sentence %></td>
+          <% if worker.job["payload"] %>
+            <td><%= worker.job["payload"]["class"] %>:<%= worker.job["payload"]["args"].inspect %></td>
+            <td><%= time_ago_in_words(worker.job["run_at"]) %> ago</td>
+          <% else %>
+            <td>Cookies</td>
+            <td>-</td>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

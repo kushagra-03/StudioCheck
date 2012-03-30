@@ -1,0 +1,7 @@
+<% if @test_run.result.nil? %>
+  <%= javascript_tag "setTimeout(function() { $('#run-log').load('/test_runs/#{@test_run.id}/run_log'); }, 5000);" %>
+<% end %>
+
+<pre>
+<%= @test_run.run_log %>
+</pre>
