@@ -1,8 +1,8 @@
 GIT
-  remote: https://github.com/bvandenbos/resque-scheduler.git
-  revision: 6d37cdda26b5e1f41840614cf07842940e8399cc
+  remote: git://github.com/bvandenbos/resque-scheduler.git
+  revision: 4a529133511e7bf54e9aaf5d4d09bf3503c4db19
   specs:
-    resque-scheduler (2.0.0.f)
+    resque-scheduler (2.0.0.h)
       redis (>= 2.0.1)
       resque (>= 1.19.0)
       rufus-scheduler
